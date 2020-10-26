@@ -73,11 +73,11 @@
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+    **Content:** `{ error : "Email Invalid or Password Invalid" }`
 
   OR
 
-  * **Code:** 401 UNPROCESSABLE ENTRY <br />
+  * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "Email Invalid or Password Invalid" }`
 
 
@@ -90,15 +90,13 @@
 
 * **URL**
 
-  /user/:id
+  /todo/:id
 
 * **Method:**
 
   `GET`
   
 *  **URL Params**
-
-    /:id
 
    **Required:**
  
@@ -120,7 +118,7 @@
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Cannot get /user/1" }`
+    **Content:** `{ error : "Cannot get /todo/1" }`
 
 
 
@@ -131,15 +129,13 @@
 
 * **URL**
 
-    /user/:id/add-todo
+    /todo/:id/add-todo
 
 * **Method:**
 
   `POST`
   
 *  **URL Params**
-
-    /:id
 
    **Required:**
  
@@ -179,7 +175,7 @@
 
 * **URL**
 
-  /user/:id/edit-todo/:todoId
+  /todo/:id/edit-todo/:todoId
 
 * **Method:**
 
@@ -187,11 +183,9 @@
   
 *  **URL Params**
 
-    /:id && /:todoId
-
    **Required:**
  
-   `id=[integer]` &&
+   `id=[integer]` AND
     `todoId=[integer]`
 
 * **Data Params**
@@ -226,7 +220,7 @@
 
 * **URL**
 
-  /user/:id/delete-todo/:todoId
+  /todo/:id/delete-todo/:todoId
 
 * **Method:**
 
@@ -234,11 +228,9 @@
   
 *  **URL Params**
 
-    /:id && /:todoId
-
    **Required:**
  
-   `id=[integer]` &&
+   `id=[integer]` AND
     `todoId=[integer]`
 
 * **Success Response:**
@@ -259,7 +251,7 @@
 
 * **URL**
 
-  /user/:id/update-status/:todoId
+  /todo/:id/update-status/:todoId
 
 * **Method:**
   
@@ -267,11 +259,9 @@
   
 *  **URL Params**
 
-    /:id && /:todoId
-
    **Required:**
  
-   `id=[integer]` &&
+   `id=[integer]` AND
     `todoId=[integer]`
 
 * **Data Params**
@@ -281,7 +271,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ 1 }`
+    **Content:** `{ msg: "Success update status to true" }`
  
 * **Error Response:**
 
