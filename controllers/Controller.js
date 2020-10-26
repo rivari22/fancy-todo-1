@@ -10,6 +10,10 @@ class Controller {
             const user = await User.create(newData)
             res.status(201).json(user)
         } catch (err) {
+            if(err.name === "SequelizeValidationError") {
+                res.status(500).json(err.errors)
+                return
+            }
             res.status(500).json(err)
         }
     }

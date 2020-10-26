@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const convertDate = require('../helpers/convertDate');
+
 module.exports = (sequelize, DataTypes) => {
   class Todo extends Model {
     /**
@@ -18,7 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     status: DataTypes.BOOLEAN,
-    due_date: DataTypes.DATE,
+    due_date: {
+      type: DataTypes.DATE,
+      validate: {
+        isAfter: {
+          args: convertDate(new Date()),
+          msg: "Cannot select a date less than today"
+        }
+      }
+    },
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

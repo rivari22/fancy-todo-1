@@ -22,6 +22,10 @@ class TodoController {
             })
             res.status(201).json(todo)
         } catch (err) {
+            if(err.name == "SequelizeValidationError"){
+                res.status(500).json(err.errors[0].message)
+                return
+            }
             res.status(500).json(err)
         }
     }
@@ -39,6 +43,10 @@ class TodoController {
             })
             res.status(200).json(todo[1][0])
         } catch (err) {
+            if(err.name == "SequelizeValidationError"){
+                res.status(500).json(err.errors[0].message)
+                return
+            }
             res.status(500).json(err)
         }
     }
