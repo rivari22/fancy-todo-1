@@ -44,14 +44,6 @@
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{ error : "Password minimum has 6 words" }`
 
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
-
 
 **Login**
 ----
@@ -88,14 +80,6 @@
   * **Code:** 401 UNPROCESSABLE ENTRY <br />
     **Content:** `{ error : "Email Invalid or Password Invalid" }`
 
-
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
 
 
 **GET ALL TODOS USER**
@@ -138,13 +122,6 @@
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{ error : "Cannot get /user/1" }`
 
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
 
 
 **Add TODO**
@@ -194,13 +171,6 @@
   * **Code:** 500 <br />
     **Content:** `{ error : "Internal Server Error" }`
 
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
 
 **Edit TODO**
 ----
@@ -221,7 +191,7 @@
 
    **Required:**
  
-   `id=[integer]`
+   `id=[integer]` &&
     `todoId=[integer]`
 
 * **Data Params**
@@ -248,14 +218,6 @@
   * **Code:** 500 <br />
     **Content:** `{ error : "Server Internal Error" }`
 
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
-
 
 **Delete TODO List**
 ----
@@ -276,7 +238,7 @@
 
    **Required:**
  
-   `id=[integer]`
+   `id=[integer]` &&
     `todoId=[integer]`
 
 * **Success Response:**
@@ -289,13 +251,6 @@
   * **Code:** 404 <br />
     **Content:** `{ error : "Not Found" }`
 
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
 
 **Update Status TODO**
 ----
@@ -316,7 +271,7 @@
 
    **Required:**
  
-   `id=[integer]`
+   `id=[integer]` &&
     `todoId=[integer]`
 
 * **Data Params**
@@ -332,11 +287,3 @@
 
   * **Code:** 500 <br />
     **Content:** `{ error : "Server Internal Error" }`
-
-* **Sample Call:**
-
-  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._> 
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
