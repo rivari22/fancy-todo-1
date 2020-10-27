@@ -5,4 +5,9 @@ function generateTokenJWT(data) {
     return token
 }
 
-module.exports = { generateTokenJWT }
+function verifyTokenJWT(token) {
+    const tokenVerif = jwt.verify(token, process.env.SECRET);
+    return tokenVerif
+}
+
+module.exports = { generateTokenJWT, verifyTokenJWT }

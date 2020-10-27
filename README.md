@@ -90,7 +90,7 @@
 
 * **URL**
 
-  /todo/:id
+  /todo
 
 * **Method:**
 
@@ -100,9 +100,7 @@
 
    **Required:**
  
-   `id=[integer]`
-
-* **Success Response:**
+*Success Response:**
 
   * **Code:** 200 <br />
     **Content:** `[
@@ -129,7 +127,7 @@
 
 * **URL**
 
-    /todo/:id/add-todo
+    /todo/add
 
 * **Method:**
 
@@ -139,9 +137,7 @@
 
    **Required:**
  
-   `id=[integer]`
-
-* **Data Params**
+*Data Params**
 
     { 
         title: "Olahraga",
@@ -175,7 +171,7 @@
 
 * **URL**
 
-  /todo/:id/edit-todo/:todoId
+  /todo/edit/:todoId
 
 * **Method:**
 
@@ -185,8 +181,7 @@
 
    **Required:**
  
-   `id=[integer]` AND
-    `todoId=[integer]`
+  `todoId=[integer]`
 
 * **Data Params**
 
@@ -220,7 +215,7 @@
 
 * **URL**
 
-  /todo/:id/delete-todo/:todoId
+  /todo/delete/:todoId
 
 * **Method:**
 
@@ -230,8 +225,7 @@
 
    **Required:**
  
-   `id=[integer]` AND
-    `todoId=[integer]`
+  `todoId=[integer]`
 
 * **Success Response:**
   
@@ -251,7 +245,7 @@
 
 * **URL**
 
-  /todo/:id/update-status/:todoId
+  /todo/update-status/:todoId
 
 * **Method:**
   
@@ -261,8 +255,7 @@
 
    **Required:**
  
-   `id=[integer]` AND
-    `todoId=[integer]`
+  `todoId=[integer]`
 
 * **Data Params**
 

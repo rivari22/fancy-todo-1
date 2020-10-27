@@ -1,11 +1,11 @@
 const { User, Todo } = require('../models/index');
-
+    
 class TodoController {
     static async getTodosHandler(req, res) {
         try {
             const todos = await Todo.findAll({
                 where: {
-                    UserId: 1 // from JWT Token **
+                    UserId: req.access_token.id
                 }
             })
             res.status(200).json(todos)
@@ -69,7 +69,7 @@ class TodoController {
         try {
             const todoId = req.params.todoId
             let updated = false
-            console.log(req.body.status)
+            // console.log(req.body.status)
             if(req.body.status.toLowerCase() === "true") {
                 updated = true
             }
