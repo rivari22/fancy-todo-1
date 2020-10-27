@@ -4,21 +4,17 @@ const {generateTokenJWT} = require('../helpers/jwt');
 
 class Controller {
     
-    static async registerHandler(req, res) {
+    static async registerHandler(req, res, next) {
         try {
             const newData = req.body
             const user = await User.create(newData)
             res.status(201).json(user)
         } catch (err) {
-            if(err.name === "SequelizeValidationError") {
-                res.status(500).json(err.errors)
-                return
-            }
-            res.status(500).json(err)
+            next(err)
         }
     }
 
-    static async loginHandler(req, res) {
+    static async loginHandler(req, res, next) {
         try {
             const inputUser = req.body
             const user = await User.findOne({
@@ -27,9 +23,9 @@ class Controller {
                 }
             })
             if(!user) {
-                res.status(401).json({msg: "email or password wrong"})
+                next({name: "Unauthorized", msg: "email or password wrong"})
             } else if (!checkPassword(inputUser.password, user.password)) {
-                res.status(401).json({msg: "email or password wrong"})
+                next({name: "Unauthorized", msg: "email or password wrong"})
             } else { 
                 const accessToken = generateTokenJWT({
                     id: user.id,
@@ -40,7 +36,7 @@ class Controller {
                 res.status(200).json(accessToken)
             }
         } catch (err) {
-            res.status(500).json(err)
+            next(err)
         }
     }
 }

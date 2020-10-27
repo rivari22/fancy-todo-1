@@ -1,36 +1,34 @@
 const { User, Todo } = require('../models/index');
     
 class TodoController {
-    static async getTodosHandler(req, res) {
+    static async getTodosHandler(req, res, next) {
         try {
             const todos = await Todo.findAll({
                 where: {
-                    UserId: req.access_token.id
+                    UserId: req.decoded.id
                 }
             })
             res.status(200).json(todos)
         } catch (err) {
-            res.status(404).json(err)
+            // res.status(404).json(err)
+            next(err)
         }
     }
 
-    static async addTodoHandler(req, res) {
+    static async addTodoHandler(req, res, next) {
         try {
             const newTodo = req.body
+            newTodo.UserId = req.decoded.id
             const todo = await Todo.create(newTodo, {
                 returning: true
             })
             res.status(201).json(todo)
         } catch (err) {
-            if(err.name == "SequelizeValidationError"){
-                res.status(500).json(err.errors[0].message)
-                return
-            }
-            res.status(500).json(err)
+            next(err)
         }
     }
 
-    static async editTodoHandler(req, res) {
+    static async editTodoHandler(req, res, next) {
         try {
             const todoId = req.params.todoId
             const editedData = req.body
@@ -43,11 +41,7 @@ class TodoController {
             })
             res.status(200).json(todo[1][0])
         } catch (err) {
-            if(err.name == "SequelizeValidationError"){
-                res.status(500).json(err.errors[0].message)
-                return
-            }
-            res.status(500).json(err)
+            next(err)
         }
     }
 
@@ -55,25 +49,19 @@ class TodoController {
         try {
             const todoId = req.params.todoId
             const deleted = await Todo.destroy({where: {id:todoId}})
-            if(!deleted) {
-                res.status(404).json({msg: "Cannot delete. Todo ID Not Found"})
-                return
-            }
             res.status(200).json({msg: `Success Delete TODO with id ${todoId}`})
         } catch (err) {
-            res.status(500).json(err)
+            next(err)
         }
     }
 
     static async updateStatusHandler(req, res) {
         try {
             const todoId = req.params.todoId
-            let updated = false
-            // console.log(req.body.status)
+            let updated = req.body.status
             if(req.body.status.toLowerCase() === "true") {
                 updated = true
             }
-            // console.log(updated)
             const statusUpdate = await Todo.update({
                 status: updated
             }, {
@@ -85,7 +73,7 @@ class TodoController {
             res.status(200).json({msg : `Success update status to ${statusUpdate[1][0].status}`})
 
         } catch (err) {
-            res.status(500).json(err)
+            next(err)
         }
     }
 }

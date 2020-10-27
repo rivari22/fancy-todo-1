@@ -6,5 +6,5 @@ const Controller = require('../controllers/Controller');
 router.post("/register", Controller.registerHandler)
 router.post("/login", Controller.loginHandler)
 
-router.use("/todo", todoRoutes)
+router.use("/todos", todoRoutes)
 module.exports = router

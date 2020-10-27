@@ -90,7 +90,7 @@
 
 * **URL**
 
-  /todo
+  /todos
 
 * **Method:**
 
@@ -127,7 +127,7 @@
 
 * **URL**
 
-    /todo/add
+    /todos
 
 * **Method:**
 
@@ -171,7 +171,7 @@
 
 * **URL**
 
-  /todo/edit/:todoId
+  /todos/:todoId
 
 * **Method:**
 
@@ -215,7 +215,7 @@
 
 * **URL**
 
-  /todo/delete/:todoId
+  /todos/:todoId
 
 * **Method:**
 
@@ -245,7 +245,7 @@
 
 * **URL**
 
-  /todo/update-status/:todoId
+  /todos/:todoId
 
 * **Method:**
   
