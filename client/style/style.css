@@ -1,0 +1,56 @@
+.img-hero {
+}
+.img-hero img{
+    width: 600px;
+}
+.img-svg-1{
+    height: 20rem;
+    padding-top: 2rem;
+    border-radius: 15px;
+}
+.img-svg-1 img { 
+    width: 210px;
+    height: 178px;
+}
+.img-svg-2{
+    height: 20rem;
+    padding-top: 2rem;
+    border-radius: 15px;
+}
+.img-svg-2 img { 
+    width: 220px;
+    height: 185px;
+}
+.img-svg-3{
+    height: 20rem;
+    padding-top: 2rem;
+    border-radius: 15px;
+}
+.img-svg-3 img { 
+    width: 200px;
+    height: 172px;
+}
+footer{
+    border-top: 1px solid rgb(112, 112, 112);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+.form-row {
+    height: 100%;
+}
+.rounded-manual {
+    border-radius: 20px;
+}
+/* register */
+.register {
+    height: 80vh;
+}
+
+/* login */
+.login {
+    height: 80vh;
+}
