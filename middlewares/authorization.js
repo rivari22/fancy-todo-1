@@ -4,13 +4,11 @@ async function authorization(req, res, next) {
     try {
         const { id } = req.decoded
         if(!id) {
-            // res.status(401).json({msg: "Unauthorized"})
             next({name: "Unauthorized",msg: "Unauthorized"})
         } else {
             const { todoId } = req.params
             if(!todoId) {
-                req.body.UserId = id
-                next()
+                next({name: "NotFound", msg: "Todo Id Not Found"})
             }
             else { 
                 const todo = await Todo.findByPk(todoId)
