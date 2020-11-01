@@ -20,6 +20,12 @@ module.exports = {
       due_date: {
         type: Sequelize.DATE
       },
+      start_date: {
+        type: Sequelize.DATE
+      },
+      category: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

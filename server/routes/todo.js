@@ -7,6 +7,8 @@ const authorization = require('../middlewares/authorization');
 router.use(authentication)
 
 router.get("/", Controller.getTodosHandler)
+router.get("/:todoId", Controller.getTodosByIdHandler)
+router.get("/date/:date", Controller.getTodosByDateHandler)
 router.post("/", Controller.addTodoHandler)
 router.put("/:todoId", authorization, Controller.editTodoHandler)
 router.delete("/:todoId",authorization, Controller.deleteTodoHandler)

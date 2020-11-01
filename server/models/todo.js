@@ -29,6 +29,16 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    start_date: {
+      type: DataTypes.DATE,
+      validate: {
+        isAfter: {
+          args: convertDate(new Date()),
+          msg: "Cannot select a date less than today"
+        }
+      }
+    },
+    category: DataTypes.STRING,
     UserId: DataTypes.INTEGER
   }, {
     sequelize,
